@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plagiarism Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .form-container {
+      margin-top: 30px;
+    }
+    
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+    
+    .result-container {
+      margin-top: 30px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+    
+    .result-container h3 {
+      color: #333;
+    }
+    
+    .result-container p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function checkPlagiarism() {
+      var text1 = document.getElementById('text1').value;
+      var text2 = document.getElementById('text2').value;
+      
+      var similarity = calculateSimilarity(text1, text2);
+      
+      var resultContainer = document.getElementById('result-container');
+      resultContainer.innerHTML = "";
+      
+      var heading = document.createElement('h3');
+      heading.textContent = "Plagiarism Checker Result";
+      
+      var percentage = document.createElement('p');
+      percentage.textContent = "Similarity Percentage: " + similarity + "%";
+      
+      resultContainer.appendChild(heading);
+      resultContainer.appendChild(percentage);
+    }
+    
+    function calculateSimilarity(text1, text2) {
+      // Perform similarity calculation logic here
+      // This is just a dummy implementation returning a random percentage
+      return Math.floor(Math.random() * 100);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Plagiarism Checker</h1>
+    <div class="form-container">
+      <input type="text" id="text1" placeholder="Enter the first text" required>
+      <input type="text" id="text2" placeholder="Enter the second text" required>
+      <input type="submit" value="Check Plagiarism" onclick="checkPlagiarism()">
+    </div>
+    <div class="result-container" id="result-container"></div>
+  </div>
+</body>
+</html>
